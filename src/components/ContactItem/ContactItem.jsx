@@ -22,6 +22,10 @@ const ContactItem = ({ id, name, number }) => {
     useToggle();
 
   const handleRemoveContact = async id => {
+    if (isOpenUpdateForm) {
+      toggleUpdateForm();
+    }
+
     try {
       await removeContact(id);
       Notify.success(`Contact successfully removed`);
