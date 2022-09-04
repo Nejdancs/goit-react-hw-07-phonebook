@@ -3,14 +3,28 @@ import { RiUserSearchLine, RiUserAddLine } from 'react-icons/ri';
 import { useToggle } from 'hooks/useToggle';
 
 const NavBar = () => {
-  const { isOpenFilter, isOpenForm, toggleFilter, toggleForm } = useToggle();
+  const {
+    isOpenFilter,
+    isOpenAddForm,
+    isOpenUpdateForm,
+    toggleFilter,
+    toggleAddForm,
+    toggleUpdateForm,
+  } = useToggle();
+
+  const handleAddClick = () => {
+    if (isOpenUpdateForm) {
+      toggleUpdateForm();
+    }
+    toggleAddForm();
+  };
 
   return (
     <Wrapper>
       <Title>PHONEBOOK</Title>
       <Button
-        onClick={toggleForm}
-        isOpen={isOpenForm}
+        onClick={handleAddClick}
+        isOpen={isOpenAddForm}
         title="Add contact"
         type="button"
       >

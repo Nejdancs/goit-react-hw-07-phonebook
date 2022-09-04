@@ -1,10 +1,12 @@
 import { toggleFilterAction } from '../redux/slice/filterSlice';
-import { toggleFormAction } from 'redux/slice/addContactFormSlice';
+import { toggleAddFormAction } from 'redux/slice/addContactFormSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { toggleUpdateFormAction } from 'redux/slice/updateContactFormSlice';
 
 export const useToggle = () => {
   const isOpenFilter = useSelector(state => state.filter.isOpen);
-  const isOpenForm = useSelector(state => state.addContactForm.isOpen);
+  const isOpenAddForm = useSelector(state => state.addContactForm.isOpen);
+  const isOpenUpdateForm = useSelector(state => state.updateContactForm.isOpen);
 
   const dispatch = useDispatch();
 
@@ -12,9 +14,20 @@ export const useToggle = () => {
     dispatch(toggleFilterAction());
   };
 
-  const toggleForm = () => {
-    dispatch(toggleFormAction());
+  const toggleAddForm = () => {
+    dispatch(toggleAddFormAction());
   };
 
-  return { isOpenForm, isOpenFilter, toggleFilter, toggleForm };
+  const toggleUpdateForm = () => {
+    dispatch(toggleUpdateFormAction());
+  };
+
+  return {
+    isOpenAddForm,
+    isOpenFilter,
+    isOpenUpdateForm,
+    toggleFilter,
+    toggleAddForm,
+    toggleUpdateForm,
+  };
 };

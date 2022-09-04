@@ -13,4 +13,4 @@ export const addContactFormSlice = createSlice({
 });
 
 export const addContactFormReducer = addContactFormSlice.reducer;
-export const { toggle: toggleFormAction } = addContactFormSlice.actions;
+export const { toggle: toggleAddFormAction } = addContactFormSlice.actions;

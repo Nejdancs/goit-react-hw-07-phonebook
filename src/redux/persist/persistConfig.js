@@ -11,9 +11,3 @@ export const persistFilterConfig = {
   version: 1,
   storage,
 };
-
-export const persistFormConfig = {
-  key: 'addContactForm',
-  version: 1,
-  storage,
-};

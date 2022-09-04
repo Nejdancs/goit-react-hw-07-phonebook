@@ -10,12 +10,13 @@ import { useToggle } from 'hooks/useToggle';
 
 export const App = () => {
   const [filteredContacts, filter, setFilter] = useFilteredContacts();
-  const { isOpenFilter, isOpenForm } = useToggle();
+  const { isOpenFilter, isOpenAddForm, isOpenUpdateForm } = useToggle();
 
   return (
     <Container>
       <NavBar />
-      {isOpenForm && <AddContactsForm />}
+      {isOpenAddForm && <AddContactsForm type={'add'} />}
+      {isOpenUpdateForm && <AddContactsForm type={'update'} />}
       {isOpenFilter && (
         <Filter value={filter} onSearch={e => setFilter(e.target.value)} />
       )}
